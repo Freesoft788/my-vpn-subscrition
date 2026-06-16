@@ -1,0 +1,1842 @@
+#profile-title:White List
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      {
+        "address" : "localhost",
+        "domains" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "skipFallback" : true
+      },
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "84.201.164.72",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "96ef0cf9-7d29-4b2f-b170-efd555481735"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "ONSC3Bp5U0cjkMca7bXlUI16izIeN0fJKoCjEdn64RQ",
+          "serverName" : "yandex.ru",
+          "shortId" : "8661e088b7c246a2",
+          "show" : false,
+          "spiderX" : "\/maps\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇷🇺 Белые списки #1",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "AsIs",
+    "rules" : [
+      {
+        "domain" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      }
+    ]
+  }
+}
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      {
+        "address" : "localhost",
+        "domains" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "skipFallback" : true
+      },
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "84.201.160.167",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "96ef0cf9-7d29-4b2f-b170-efd555481735"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "ONSC3Bp5U0cjkMca7bXlUI16izIeN0fJKoCjEdn64RQ",
+          "serverName" : "yandex.ru",
+          "shortId" : "ad388dadd9701fdc",
+          "show" : false,
+          "spiderX" : "\/maps\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇷🇺 Белые списки #2",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "AsIs",
+    "rules" : [
+      {
+        "domain" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      }
+    ]
+  }
+}
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      {
+        "address" : "localhost",
+        "domains" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "skipFallback" : true
+      },
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "84.201.178.0",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "96ef0cf9-7d29-4b2f-b170-efd555481735"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "ONSC3Bp5U0cjkMca7bXlUI16izIeN0fJKoCjEdn64RQ",
+          "serverName" : "yandex.ru",
+          "shortId" : "ad388dadd9701fdc",
+          "show" : false,
+          "spiderX" : "\/maps\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇷🇺  Белые списки #3",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "AsIs",
+    "rules" : [
+      {
+        "domain" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      }
+    ]
+  }
+}
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      {
+        "address" : "localhost",
+        "domains" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "skipFallback" : true
+      },
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "84.201.139.37",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "96ef0cf9-7d29-4b2f-b170-efd555481735"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "ONSC3Bp5U0cjkMca7bXlUI16izIeN0fJKoCjEdn64RQ",
+          "serverName" : "yandex.ru",
+          "shortId" : "175aaaab96e8cbdd",
+          "show" : false,
+          "spiderX" : "\/maps\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇷🇺  Белые списки #4",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "AsIs",
+    "rules" : [
+      {
+        "domain" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      }
+    ]
+  }
+}
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      {
+        "address" : "localhost",
+        "domains" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "skipFallback" : true
+      },
+      "1.1.1.1",
+      "8.8.8.8"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "176.108.248.43",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "96ef0cf9-7d29-4b2f-b170-efd555481735"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "firefox",
+          "publicKey" : "ONSC3Bp5U0cjkMca7bXlUI16izIeN0fJKoCjEdn64RQ",
+          "serverName" : "yandex.ru",
+          "shortId" : "f7610e508ad0dcf8",
+          "show" : false,
+          "spiderX" : "\/maps\/"
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "proxy"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇷🇺  Белые списки #5",
+  "routing" : {
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "AsIs",
+    "rules" : [
+      {
+        "domain" : [
+          "regexp:.+\\.ru$",
+          "regexp:.+\\.su$",
+          "regexp:.+\\.рф$",
+          "domain:yandex.ru",
+          "domain:yandex.net",
+          "domain:ya.ru",
+          "domain:mail.ru",
+          "domain:vk.com",
+          "domain:vk.me",
+          "domain:ok.ru",
+          "domain:sberbank.ru",
+          "domain:tinkoff.ru",
+          "domain:tbank.ru",
+          "domain:gosuslugi.ru",
+          "domain:mos.ru",
+          "domain:wildberries.ru",
+          "domain:ozon.ru",
+          "domain:avito.ru",
+          "domain:kinopoisk.ru",
+          "domain:ivi.ru",
+          "domain:2gis.ru",
+          "domain:dzen.ru",
+          "domain:rutube.ru",
+          "domain:rt.ru",
+          "domain:mts.ru",
+          "domain:megafon.ru",
+          "domain:beeline.ru",
+          "domain:tele2.ru",
+          "domain:nalog.gov.ru",
+          "domain:cbr.ru",
+          "domain:2ip.ru",
+          "domain:whoer.net",
+          "domain:browserleaks.com",
+          "domain:browserleaks.org",
+          "domain:ipapi.is",
+          "domain:iplocate.io",
+          "domain:ifconfig.me",
+          "domain:checkip.amazonaws.com",
+          "domain:ipify.org",
+          "domain:ip.sb",
+          "domain:icanhazip.com",
+          "domain:ifconfig.co",
+          "domain:ident.me",
+          "domain:myip.com",
+          "domain:myip.is",
+          "domain:ipinfo.io",
+          "domain:ipecho.net",
+          "domain:ip-api.com",
+          "domain:ipwho.is",
+          "domain:sypexgeo.net",
+          "domain:ipapi.co",
+          "domain:ipapi.com",
+          "domain:db-ip.com",
+          "domain:freeipapi.com",
+          "domain:iplocation.net",
+          "domain:ipchicken.com",
+          "domain:iplocation.io",
+          "domain:ipregistry.co",
+          "domain:maxmind.com",
+          "domain:geoiptool.com",
+          "domain:ipgeolocation.io",
+          "domain:ipdata.co",
+          "domain:ipstack.com",
+          "domain:ipqualityscore.com",
+          "domain:scamalytics.com",
+          "domain:iphey.com",
+          "domain:pixelscan.net",
+          "domain:dnsleaktest.com",
+          "domain:ipleak.net",
+          "domain:browserling.com",
+          "domain:amiunique.org",
+          "domain:deviceinfo.me",
+          "domain:coveryourtracks.eff.org"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "outboundTag" : "direct",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      }
+    ]
+  }
+}
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      "1.1.1.1",
+      "1.0.0.1"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "observatory" : {
+    "enableConcurrency" : true,
+    "probeInterval" : "1m",
+    "probeUrl" : "https:\/\/www.google.com\/generate_204",
+    "subjectSelector" : [
+      "tl-4-1-gphq5vtq1nc",
+      "tl-4-2-a46m6oig1bk",
+      "tl-4-3-tliokt0m828"
+    ]
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "de-new.datanode-internal.net",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "81b08ef8-0a73-4d4b-a053-16b4525a2f19"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic",
+          "serverName" : "tradingview.com",
+          "shortId" : "abbcd128",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "tl-4-1-gphq5vtq1nc"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "hole2.datanode-internal.net",
+            "port" : 8443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "81b08ef8-0a73-4d4b-a053-16b4525a2f19"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic",
+          "serverName" : "eh.vk.com",
+          "shortId" : "abbcd128",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "tl-4-2-a46m6oig1bk"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "res.datanode-internal.net",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "81b08ef8-0a73-4d4b-a053-16b4525a2f19"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic",
+          "serverName" : "tradingview.com",
+          "shortId" : "abbcd128",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "tl-4-3-tliokt0m828"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇵🇱 Мобильная связь #4",
+  "routing" : {
+    "balancers" : [
+      {
+        "fallbackTag" : "tl-4-2-a46m6oig1bk",
+        "selector" : [
+          "tl-4-1-gphq5vtq1nc",
+          "tl-4-3-tliokt0m828"
+        ],
+        "strategy" : {
+          "settings" : {
+            "baselines" : [
+              "4s"
+            ],
+            "costs" : [
+              {
+                "match" : "tl-4-1-gphq5vtq1nc",
+                "regexp" : false,
+                "value" : 1
+              },
+              {
+                "match" : "tl-4-2-a46m6oig1bk",
+                "regexp" : false,
+                "value" : 10000000
+              },
+              {
+                "match" : "tl-4-3-tliokt0m828",
+                "regexp" : false,
+                "value" : 10000
+              }
+            ],
+            "expected" : 1,
+            "maxRTT" : "6s"
+          },
+          "type" : "leastLoad"
+        },
+        "tag" : "bal_4"
+      }
+    ],
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "IPIfNonMatch",
+    "rules" : [
+      {
+        "outboundTag" : "block",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      },
+      {
+        "domain" : [
+          "domain:mtalk.google.com",
+          "domain:push.apple.com",
+          "domain:api.push.apple.com"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "ip" : [
+          "17.0.0.0\/8"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "bal_4",
+        "inboundTag" : [
+          "socks",
+          "http"
+        ],
+        "network" : "tcp,udp",
+        "type" : "field"
+      }
+    ]
+  }
+}
+{
+  "dns" : {
+    "queryStrategy" : "UseIP",
+    "servers" : [
+      "1.1.1.1",
+      "1.0.0.1"
+    ]
+  },
+  "inbounds" : [
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10808,
+      "protocol" : "socks",
+      "settings" : {
+        "auth" : "noauth",
+        "udp" : true
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "socks"
+    },
+    {
+      "listen" : "127.0.0.1",
+      "port" : 10809,
+      "protocol" : "http",
+      "settings" : {
+        "allowTransparent" : false
+      },
+      "sniffing" : {
+        "destOverride" : [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled" : true,
+        "routeOnly" : false
+      },
+      "tag" : "http"
+    }
+  ],
+  "log" : {
+    "access" : "\/private\/var\/mobile\/Containers\/Shared\/AppGroup\/AAA338CC-D6ED-441A-BCFA-6719BAA6347C\/Library\/Application Support\/Xray\/logs\/access.log",
+    "dnsLog" : true,
+    "loglevel" : "Warning"
+  },
+  "observatory" : {
+    "enableConcurrency" : true,
+    "probeInterval" : "1m",
+    "probeUrl" : "https:\/\/www.google.com\/generate_204",
+    "subjectSelector" : [
+      "tl-3-1-iktquccq1v4",
+      "tl-3-2-jvs6o3g89l4",
+      "tl-3-3-cp3b9m8asl"
+    ]
+  },
+  "outbounds" : [
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "res.datanode-internal.net",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "81b08ef8-0a73-4d4b-a053-16b4525a2f19"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic",
+          "serverName" : "tradingview.com",
+          "shortId" : "abbcd128",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "tl-3-1-iktquccq1v4"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "white.datanode-internal.net",
+            "port" : 8443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "81b08ef8-0a73-4d4b-a053-16b4525a2f19"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic",
+          "serverName" : "ads.x5.ru",
+          "shortId" : "abbcd128",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "tl-3-2-jvs6o3g89l4"
+    },
+    {
+      "protocol" : "vless",
+      "settings" : {
+        "vnext" : [
+          {
+            "address" : "de-new.datanode-internal.net",
+            "port" : 443,
+            "users" : [
+              {
+                "encryption" : "none",
+                "flow" : "xtls-rprx-vision",
+                "id" : "81b08ef8-0a73-4d4b-a053-16b4525a2f19"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings" : {
+        "network" : "tcp",
+        "realitySettings" : {
+          "fingerprint" : "qq",
+          "publicKey" : "r6lN34m1nN-xQZ458j5NPD5xJ3_QBF2bGzY4KJEo4ic",
+          "serverName" : "tradingview.com",
+          "shortId" : "abbcd128",
+          "show" : false
+        },
+        "security" : "reality",
+        "tcpSettings" : {
+
+        }
+      },
+      "tag" : "tl-3-3-cp3b9m8asl"
+    },
+    {
+      "protocol" : "freedom",
+      "tag" : "direct"
+    },
+    {
+      "protocol" : "blackhole",
+      "tag" : "block"
+    }
+  ],
+  "remarks" : "🇵🇱 Мобильная связь #3",
+  "routing" : {
+    "balancers" : [
+      {
+        "fallbackTag" : "tl-3-2-jvs6o3g89l4",
+        "selector" : [
+          "tl-3-1-iktquccq1v4",
+          "tl-3-3-cp3b9m8asl"
+        ],
+        "strategy" : {
+          "settings" : {
+            "baselines" : [
+              "4s"
+            ],
+            "costs" : [
+              {
+                "match" : "tl-3-1-iktquccq1v4",
+                "regexp" : false,
+                "value" : 10000
+              },
+              {
+                "match" : "tl-3-2-jvs6o3g89l4",
+                "regexp" : false,
+                "value" : 10000000
+              },
+              {
+                "match" : "tl-3-3-cp3b9m8asl",
+                "regexp" : false,
+                "value" : 1
+              }
+            ],
+            "expected" : 1,
+            "maxRTT" : "6s"
+          },
+          "type" : "leastLoad"
+        },
+        "tag" : "bal_3"
+      }
+    ],
+    "domainMatcher" : "hybrid",
+    "domainStrategy" : "IPIfNonMatch",
+    "rules" : [
+      {
+        "outboundTag" : "block",
+        "protocol" : [
+          "bittorrent"
+        ],
+        "type" : "field"
+      },
+      {
+        "domain" : [
+          "domain:mtalk.google.com",
+          "domain:push.apple.com",
+          "domain:api.push.apple.com"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "ip" : [
+          "17.0.0.0\/8"
+        ],
+        "outboundTag" : "direct",
+        "type" : "field"
+      },
+      {
+        "balancerTag" : "bal_3",
+        "inboundTag" : [
+          "socks",
+          "http"
+        ],
+        "network" : "tcp,udp",
+        "type" : "field"
+      }
+    ]
+  }
+}
